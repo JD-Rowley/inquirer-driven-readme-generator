@@ -6,7 +6,7 @@ const questions = [];
 
 // TODO: Create a function to write README file
 function writeToFile() {
-    fs.writeFile('./readme.md', process.argv[2], err => {
+    fs.writeFile('./generated-readme.md', process.argv[2], err => {
         if (err) {
             return console.log(err);
         }
