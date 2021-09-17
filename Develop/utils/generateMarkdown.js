@@ -12,8 +12,6 @@ function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 module.exports = templateData => {
-  console.log(templateData);
-
   return `# ${templateData.title}
   ${templateData.license}
   ## Description
@@ -29,5 +27,6 @@ module.exports = templateData => {
   ## Testing
   ${templateData.testing}
   ## Questions
-  For questions, consult ${templateData.githubName} or send messages to ${templateData.email}.
+    GitHub: ${templateData.githubName}
+    E-mail: ${templateData.email}.
   `;}
