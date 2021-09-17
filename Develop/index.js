@@ -26,86 +26,72 @@ const questions = () => {
             message: 'Write a description of your project.'
         },
         {
-            type: 'confirm',
-            name: 'confirmtInstallation',
-            message: 'Does your project require installation instructions?',
-            default: false
-        },
-        {
             type: 'input',
-            name: 'installation',
-            message: 'How do you install your project?',
-            when: ({ confirmInstallation }) => {
-                if (confirmInstallation) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
+            name: 'install',
+            message: 'What command should be run to install dependencies?',
+            default: 'npm init'
         },
         {
             type: 'input',
             name: 'usage',
-            message: 'How do you use your project?'
+            message: 'What does the user need to know about using the repo?'
         },
         {
             type: 'input',
             name: 'contribution',
-            message: 'Are there any contribution guidelines?'
+            message: 'How can a user contribute to your repo?'
         },
         {
             type: 'input',
             name: 'testing',
-            message: 'How do you test this project?'
+            message: 'What command should be run to run tests?',
+            default: 'npm test'
         },
         {
             type: 'checkbox',
             name: 'license',
-            message: 'Which license would you like to use?',
+            message: 'What kind of license should your project have?',
             choices: ['Apache', 'MIT', 'GNU', 'CC0-1.0', 'Unlicense']
         },
     ])
 };
 
-const tableOfContents = contents => {
-    // if no table of contents, create array
-    if (!contents.sections) {
-        contents.sections = [];
-    }
-    return inquirer.prompt([
-        {
-            type: 'confirm',
-            name: 'contentsConfirm',
-            message: 'Will this README.md contain a "Table of Contents?"',
-            default: false
-        },
-        {
-            type: 'input',
-            name: 'contents',
-            message: 'Enter a "Table of Contents" section.',
-        },
-        {
-            type: 'confirm',
-            name: 'moreConfirm',
-            message: 'Are there more sections?',
-            default: true
-        }
-    ])
-    .then(contentsData => {
-        contents.sections.push(contentsData);
-        if (contentsData.moreConfirm) {
-            return tableOfContents(contents);
-        } else {
-            return contentsData;
-        }
-    });
-};
+// const tableOfContents = contents => {
+//     // if no table of contents, create array
+//     if (!contents.sections) {
+//         contents.sections = [];
+//     }
+//     return inquirer.prompt([
+//         {
+//             type: 'confirm',
+//             name: 'contentsConfirm',
+//             message: 'Will this README.md contain a "Table of Contents?"',
+//             default: false
+//         },
+//         {
+//             type: 'input',
+//             name: 'contents',
+//             message: 'Enter a "Table of Contents" section.',
+//         },
+//         {
+//             type: 'confirm',
+//             name: 'moreConfirm',
+//             message: 'Are there more sections?',
+//             default: true
+//         }
+//     ])
+//     .then(contentsData => {
+//         contents.sections.push(contentsData);
+//         if (contentsData.moreConfirm) {
+//             return enterContentsSection(contents);
+//         } else {
+//             return contentsData;
+//         }
+//     });
+// };
 
 questions()
-    .then(tableOfContents)
-    .then(contents => {
-        console.log(contents);
-    });
+    .then(answers => console.log(answers))
 
 // TODO: Create a function to write README file
 // function writeToFile() {
@@ -122,4 +108,4 @@ function init() {
 };
 
 // Function call to initialize app
-init(questions);
+init();
