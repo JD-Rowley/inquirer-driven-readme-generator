@@ -8,12 +8,28 @@ const questions = () => {
         {
             type: 'input',
             name: 'githubName',
-            message: 'What is your GitHub username?'
+            message: 'What is your GitHub username? (Required)',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your GitHub username!');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'email',
-            message: 'What is your e-mail address?'
+            message: 'What is your e-mail address? (Required)',
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your e-mail address!');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
@@ -56,6 +72,7 @@ const questions = () => {
     ])
 };
 
+// SECTION 9.3.6
 // const tableOfContents = contents => {
 //     // if no table of contents, create array
 //     if (!contents.sections) {
@@ -98,7 +115,7 @@ questions()
 //     fs.writeFile('./generated-readme.md', generateMarkdown(title).toString(), err => {
 //         if (err) throw err;
 
-//         console.log('Readme Written!');
+//         console.log('Generating ReadMe...');
 //     });
 // };
 
