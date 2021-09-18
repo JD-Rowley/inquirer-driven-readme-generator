@@ -9,6 +9,7 @@ const questions = () => {
             type: 'input',
             name: 'githubName',
             message: 'What is your GitHub username? (Required)',
+            default: 'jd-rowley',
             validate: nameInput => {
                 if (nameInput) {
                     return true;
@@ -22,6 +23,7 @@ const questions = () => {
             type: 'input',
             name: 'email',
             message: 'What is your e-mail address? (Required)',
+            default: 'jdrowley1989@gmail.com',
             validate: emailInput => {
                 if (emailInput) {
                     return true;
@@ -109,13 +111,13 @@ const questions = () => {
 
 
 // TODO: Create a function to write README file
-function writeToFile() {
-    fs.writeFile('./generated-readme.md', generateMarkdown(title).toString(), err => {
-        if (err) throw err;
+// function writeToFile() {
+//     fs.writeFile('./generated-readme.md', generateMarkdown(title).toString(), err => {
+//         if (err) throw err;
 
-        console.log('Generating ReadMe...');
-    });
-};
+//         console.log('Generating ReadMe...');
+//     });
+// };
 
 // TODO: Create a function to initialize app
 function init() {
