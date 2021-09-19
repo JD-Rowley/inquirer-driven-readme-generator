@@ -36,7 +36,8 @@ const questions = () => {
         {
             type: 'input',
             name: 'title',
-            message: 'What is the title of your project?'
+            message: 'What is the title of your project?',
+            default: 'README Generator',
         },
         {
             type: 'input',
@@ -69,8 +70,8 @@ const questions = () => {
             type: 'checkbox',
             name: 'license',
             message: 'What kind of license should your project have?',
-            choices: ['Apache', 'MIT', 'GNU', 'CC0-1.0', 'Unlicense']
-        },
+            choices: ['Apache License 2.0', 'ISC', 'MIT', 'GNU GPLv3', 'CC0-1.0', 'CC-BY-SA-4.0', 'Unlicense'],
+        }
     ])
 };
 

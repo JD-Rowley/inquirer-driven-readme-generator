@@ -1,40 +1,50 @@
 const { makeBadge, ValidationError } = require('badge-maker');
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {
+const renderLicenseBadge = license => {
+  if (license == 'Unlicense' || license == '') {
+    return '';
+  }
   const format = {
     label: 'license',
-    message: 'MIT',
-    color: 'success',
-    style: 'flat',
+    message: license.join(', '),
+    color: 'informational',
+    style: 'for-the-badge',
   }
 
   const svg = makeBadge(format)
-  console.log(svg)
 
-  try {
-    makeBadge({})
-  } catch (e) {
-    console.log(e)
+  if (svg) {
+    return svg;
   }
-
-  return svg;
 };
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {
+const renderLicenseLink = license => {
+  let url = 'https://choosealicense.com/';
+  if (!license) {
+    return '';
+  } else {
+    return url;
+  }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
+const renderLicenseSection = license => {
+  if (!license) {
+    return '';
+  }
+    
+  return ``;
 }
 
 // TODO: Create a function to generate markdown for README
 module.exports = templateData => {
   return `# ${templateData.title}
-  ${renderLicenseBadge()}
+  ${renderLicenseSection(templateData.license[0])}
+  [${renderLicenseBadge(templateData.license)}](${renderLicenseLink(templateData.license)})
   ## Description
   ${templateData.description}
   ## Table of Contents
