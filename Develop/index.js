@@ -45,20 +45,20 @@ const questions = () => {
             message: 'Does this README.md require "Table of Contents?"',
             default: false,
         },
-        {
-            type: 'checkbox',
-            name: 'contents',
-            message: 'What contents sections would you like to include? (Some sections required)',
-            choices: ['Description', 'Installation', 'Usage', 'Contribution Guidelines', 'Testing', 'Questions'],
-            default: ['Description', 'Usage', 'Questions'],
-            when: ({ contentsConfirm }) => {
-                if (contentsConfirm) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        },
+        // {
+        //     type: 'checkbox',
+        //     name: 'contents',
+        //     message: 'What contents sections would you like to include? (Some sections required)',
+        //     choices: ['Description', 'Installation', 'Usage', 'Contribution Guidelines', 'Testing', 'Questions'],
+        //     default: ['Description', 'Usage', 'Questions'],
+        //     when: ({ contentsConfirm }) => {
+        //         if (contentsConfirm) {
+        //             return true;
+        //         } else {
+        //             return false;
+        //         }
+        //     }
+        // },
         {
             type: 'input',
             name: 'description',
@@ -162,6 +162,7 @@ function init() {
                 if (err) throw err;
 
                 console.log('Generating ReadMe...');
+                console.log(answers)
             })
         })
 };

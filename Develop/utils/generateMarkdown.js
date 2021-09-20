@@ -40,23 +40,30 @@ const renderLicenseSection = license => {
   return ``;
 }
 
-// const renderContentsSection = contents => {
-//   if (!contents) {
+// Create function that inserts a Table of Contents
+const renderContentsSection = contentsConfirm => {
+  if (!contentsConfirm) {
+    return '';
+  }
+
+  return `
+    ## Table of Contents
+    * [Description](#description)
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [Contributional Guidelines](#contribution)
+    * [Testing](#testing)
+    * [Questions](#questions) 
+  `;
+}
+
+// const renderContenstItems = contentsText => {
+//   if (!contentsText) {
 //     return '';
 //   }
 
 //   return `
-//     ## Table of Contents 
-//   `;
-// }
-
-// const renderFirstContenstItem = contents => {
-//   if (!contents) {
-//     return '';
-//   }
-
-//   return `
-
+//     ${contentsText}
 //   `;
 // }
 
@@ -65,6 +72,13 @@ module.exports = templateData => {
   return `# ${templateData.title}
   ${renderLicenseSection(templateData.license[0])}
   [${renderLicenseBadge(templateData.license)}](${renderLicenseLink(templateData.license)})
+  ## Table of Contents
+  * [Description](#description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contributional Guidelines](#contribution)
+  * [Testing](#testing)
+  * [Questions](#questions)  
   ## Description
   ${templateData.description}
   ## Installation
@@ -76,7 +90,7 @@ module.exports = templateData => {
   ## Testing
   ${templateData.testing}
   ## Questions
-    GitHub: ${templateData.githubName}
+    GitHub: [${templateData.githubName}](http://github.com/${templateData.githubName})
     E-mail: ${templateData.email}
   `;
 }
