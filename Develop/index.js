@@ -40,39 +40,6 @@ const questions = () => {
             default: 'README Generator',
         },
         {
-            type: 'input',
-            name: 'description',
-            message: 'Write a description of your project.'
-        },
-        {
-            type: 'input',
-            name: 'install',
-            message: 'What command should be run to install dependencies?',
-            default: 'npm init'
-        },
-        {
-            type: 'input',
-            name: 'usage',
-            message: 'What does the user need to know about using the repo?'
-        },
-        {
-            type: 'input',
-            name: 'contribution',
-            message: 'How can a user contribute to your repo?'
-        },
-        {
-            type: 'input',
-            name: 'testing',
-            message: 'What command should be run to run tests?',
-            default: 'npm test'
-        },
-        {
-            type: 'checkbox',
-            name: 'license',
-            message: 'What kind of license should your project have?',
-            choices: ['Apache License 2.0', 'ISC', 'MIT', 'GNU GPLv3', 'CC0-1.0', 'CC-BY-SA-4.0', 'Unlicense'],
-        },
-        {
             type: 'confirm',
             name: 'contentsConfirm',
             message: 'Does this README.md require "Table of Contents?"',
@@ -91,6 +58,55 @@ const questions = () => {
                     return false;
                 }
             }
+        },
+        {
+            type: 'input',
+            name: 'description',
+            message: 'Write a description of your project. (Required)',
+            validate: descriptionInput => {
+                if (descriptionInput) {
+                    return true;
+                } else {
+                    console.log('Your README needs a description!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'install',
+            message: 'What command should be run to install dependencies?',
+            default: 'npm init'
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'What does the user need to know about using the repo? (Required)',
+            validate: usageInput => {
+                if (usageInput) {
+                    return true;
+                } else {
+                    console.log('Your README needs usage guidelines!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'contribution',
+            message: 'How can a user contribute to your repo?'
+        },
+        {
+            type: 'input',
+            name: 'testing',
+            message: 'What command should be run to run tests?',
+            default: 'npm test'
+        },
+        {
+            type: 'checkbox',
+            name: 'license',
+            message: 'What kind of license should your project have?',
+            choices: ['Apache License 2.0', 'ISC', 'MIT', 'GNU GPLv3', 'CC0-1.0', 'CC-BY-SA-4.0', 'Unlicense'],
         }
     ]);
 };
