@@ -41,31 +41,21 @@ const renderLicenseSection = license => {
 }
 
 // Create function that inserts a Table of Contents
-const renderContentsSection = contentsConfirm => {
-  if (!contentsConfirm) {
-    return '';
-  }
-
-  return `
-    ## Table of Contents
-    * [Description](#description)
-    * [Installation](#installation)
-    * [Usage](#usage)
-    * [Contributional Guidelines](#contribution)
-    * [Testing](#testing)
-    * [Questions](#questions) 
-  `;
-}
-
-// const renderContenstItems = contentsText => {
-//   if (!contentsText) {
+// const renderContentsSection = () => {
+//   if (contentsConfirm === true) {
+//     return `
+//       ## Table of Contents
+//       * [Description](#description)
+//       * [Installation](#installation)
+//       * [Usage](#usage)
+//       * [Contributional Guidelines](#contribution)
+//       * [Testing](#testing)
+//       * [Questions](#questions) 
+//     `;
+//   } else {
 //     return '';
 //   }
-
-//   return `
-//     ${contentsText}
-//   `;
-// }
+// };
 
 // TODO: Create a function to generate markdown for README
 module.exports = templateData => {
@@ -90,7 +80,7 @@ module.exports = templateData => {
   ## Testing
   ${templateData.testing}
   ## Questions
-    GitHub: [${templateData.githubName}](http://github.com/${templateData.githubName})
-    E-mail: ${templateData.email}
+  * GitHub: [${templateData.githubName}](http://github.com/${templateData.githubName})
+  * E-mail: ${templateData.email}
   `;
 }
