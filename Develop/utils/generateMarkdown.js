@@ -40,6 +40,26 @@ const renderLicenseSection = license => {
   return ``;
 }
 
+// const renderContentsSection = contents => {
+//   if (!contents) {
+//     return '';
+//   }
+
+//   return `
+//     ## Table of Contents 
+//   `;
+// }
+
+// const renderFirstContenstItem = contents => {
+//   if (!contents) {
+//     return '';
+//   }
+
+//   return `
+
+//   `;
+// }
+
 // TODO: Create a function to generate markdown for README
 module.exports = templateData => {
   return `# ${templateData.title}
@@ -47,8 +67,6 @@ module.exports = templateData => {
   [${renderLicenseBadge(templateData.license)}](${renderLicenseLink(templateData.license)})
   ## Description
   ${templateData.description}
-  ## Table of Contents
-  ${templateData.contents}
   ## Installation
   ${templateData.install}
   ## Usage
@@ -59,5 +77,6 @@ module.exports = templateData => {
   ${templateData.testing}
   ## Questions
     GitHub: ${templateData.githubName}
-    E-mail: ${templateData.email}.
-  `;}
+    E-mail: ${templateData.email}
+  `;
+}

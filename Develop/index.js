@@ -71,8 +71,28 @@ const questions = () => {
             name: 'license',
             message: 'What kind of license should your project have?',
             choices: ['Apache License 2.0', 'ISC', 'MIT', 'GNU GPLv3', 'CC0-1.0', 'CC-BY-SA-4.0', 'Unlicense'],
+        },
+        {
+            type: 'confirm',
+            name: 'contentsConfirm',
+            message: 'Does this README.md require "Table of Contents?"',
+            default: false,
+        },
+        {
+            type: 'checkbox',
+            name: 'contents',
+            message: 'What contents sections would you like to include? (Some sections required)',
+            choices: ['Description', 'Installation', 'Usage', 'Contribution Guidelines', 'Testing', 'Questions'],
+            default: ['Description', 'Usage', 'Questions'],
+            when: ({ contentsConfirm }) => {
+                if (contentsConfirm) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         }
-    ])
+    ]);
 };
 
 // SECTION 9.3.6
@@ -82,12 +102,6 @@ const questions = () => {
 //         contents.sections = [];
 //     }
 //     return inquirer.prompt([
-//         {
-//             type: 'confirm',
-//             name: 'contentsConfirm',
-//             message: 'Will this README.md contain a "Table of Contents?"',
-//             default: false
-//         },
 //         {
 //             type: 'input',
 //             name: 'contents',
@@ -100,20 +114,22 @@ const questions = () => {
 //             default: true
 //         }
 //     ])
-//     .then(contentsData => {
-//         contents.sections.push(contentsData);
-//         if (contentsData.moreConfirm) {
-//             return enterContentsSection(contents);
-//         } else {
-//             return contentsData;
-//         }
-//     });
+    // .then(contentsData => {
+    //     contents.sections.push(contentsData);
+    //     if (contentsData.moreConfirm) {
+    //         return enterContentsSection(contents);
+    //     } else {
+    //         return contentsData;
+    //     }
+    // });
 // };
 
 
 // TODO: Create a function to write README file
 // function writeToFile() {
-//     fs.writeFile('./generated-readme.md', generateMarkdown(title).toString(), err => {
+//     const mdFile = generateMarkdown(answers);
+
+//     fs.writeFile('./generated-readme.md', mdFile, err => {
 //         if (err) throw err;
 
 //         console.log('Generating ReadMe...');
@@ -130,8 +146,8 @@ function init() {
                 if (err) throw err;
 
                 console.log('Generating ReadMe...');
-            });
-        });
+            })
+        })
 };
 
 // Function call to initialize app
