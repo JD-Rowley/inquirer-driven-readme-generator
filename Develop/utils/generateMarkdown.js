@@ -66,7 +66,7 @@ module.exports = templateData => {
   * [Description](#description)
   * [Installation](#installation)
   * [Usage](#usage)
-  * [Contributional Guidelines](#contribution)
+  * [Contribution Guidelines](#contribution-guidelines)
   * [Testing](#testing)
   * [Questions](#questions)  
   ## Description
