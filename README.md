@@ -17,8 +17,9 @@
   ## Usage
   This app is run through the command line, as such, the user merely needs to confirm they are in the correct directory and type either 'node index.js' or 'node index.'
   
-  Please view the video to see this app in action.
-  ![](<iframe src="https://drive.google.com/file/d/1bjGn1WPxaWho7kCbzRDid4HtYQIvEV4z/preview" width="640" height="480"></iframe>)
+  Please view the video at this link to see this app in action:
+  
+  https://watch.screencastify.com/v/JPf1Y81JmuQSV8dgFZsO
   
   ## Contribution Guidelines
   Contributions are unnecessary at this time.
@@ -28,3 +29,4 @@
   * GitHub: [jd-rowley](http://github.com/jd-rowley)
   * E-mail: jdrowley1989@gmail.com
   
+  GitHub Repo: https://github.com/JD-Rowley/readme-generator
