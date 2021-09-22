@@ -18,7 +18,7 @@
   This app is run through the command line, as such, the user merely needs to confirm they are in the correct directory and type either 'node index.js' or 'node index.'
   
   Please view the video to see this app in action.
-  <iframe src="https://drive.google.com/file/d/1bjGn1WPxaWho7kCbzRDid4HtYQIvEV4z/preview" width="640" height="480"></iframe>
+  ![}(<iframe src="https://drive.google.com/file/d/1bjGn1WPxaWho7kCbzRDid4HtYQIvEV4z/preview" width="640" height="480"></iframe>)
   
   ## Contribution Guidelines
   Contributions are unnecessary at this time.
