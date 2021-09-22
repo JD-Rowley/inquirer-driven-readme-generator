@@ -16,6 +16,10 @@
   This generator uses the Node.js runtime and Inquirer command line interface. Firstly, Node should be installed followed by the 'npm init' command to prep for Inquirer. Next, Inquirer should be installed using the command 'npm install inquirer.'
   ## Usage
   This app is run through the command line, as such, the user merely needs to confirm they are in the correct directory and type either 'node index.js' or 'node index.'
+  
+  Please view the video to see this app in action.
+  https://watch.screencastify.com/v/JPf1Y81JmuQSV8dgFZsO
+  
   ## Contribution Guidelines
   Contributions are unnecessary at this time.
   ## Testing
