@@ -45,20 +45,6 @@ const questions = () => {
             message: 'Does this README.md require "Table of Contents?"',
             default: false,
         },
-        // {
-        //     type: 'checkbox',
-        //     name: 'contents',
-        //     message: 'What contents sections would you like to include? (Some sections required)',
-        //     choices: ['Description', 'Installation', 'Usage', 'Contribution Guidelines', 'Testing', 'Questions'],
-        //     default: ['Description', 'Usage', 'Questions'],
-        //     when: ({ contentsConfirm }) => {
-        //         if (contentsConfirm) {
-        //             return true;
-        //         } else {
-        //             return false;
-        //         }
-        //     }
-        // },
         {
             type: 'input',
             name: 'description',
@@ -111,54 +97,13 @@ const questions = () => {
     ]);
 };
 
-// SECTION 9.3.6
-// const tableOfContents = contents => {
-//     // if no table of contents, create array
-//     if (!contents.sections) {
-//         contents.sections = [];
-//     }
-//     return inquirer.prompt([
-//         {
-//             type: 'input',
-//             name: 'contents',
-//             message: 'Enter a "Table of Contents" section.',
-//         },
-//         {
-//             type: 'confirm',
-//             name: 'moreConfirm',
-//             message: 'Are there more sections?',
-//             default: true
-//         }
-//     ])
-    // .then(contentsData => {
-    //     contents.sections.push(contentsData);
-    //     if (contentsData.moreConfirm) {
-    //         return enterContentsSection(contents);
-    //     } else {
-    //         return contentsData;
-    //     }
-    // });
-// };
-
-
-// TODO: Create a function to write README file
-// function writeToFile() {
-//     const mdFile = generateMarkdown(answers);
-
-//     fs.writeFile('./generated-readme.md', mdFile, err => {
-//         if (err) throw err;
-
-//         console.log('Generating ReadMe...');
-//     });
-// };
-
 // TODO: Create a function to initialize app
 function init() {
     questions()
         .then(answers => {
             const mdFile = generateMarkdown(answers);
 
-            fs.writeFile('./generated-readme.md', mdFile, err => {
+            fs.writeFile('./dist/generated-readme.md', mdFile, err => {
                 if (err) throw err;
 
                 console.log('Generating ReadMe...');

@@ -41,34 +41,28 @@ const renderLicenseSection = license => {
 }
 
 // Create function that inserts a Table of Contents
-// const renderContentsSection = () => {
-//   if (contentsConfirm === true) {
-//     return `
-//       ## Table of Contents
-//       * [Description](#description)
-//       * [Installation](#installation)
-//       * [Usage](#usage)
-//       * [Contributional Guidelines](#contribution)
-//       * [Testing](#testing)
-//       * [Questions](#questions) 
-//     `;
-//   } else {
-//     return '';
-//   }
-// };
+const renderContentsSection = contentsConfirm => {
+  if (contentsConfirm) {
+    return `
+  ## Table of Contents
+  * [Description](#description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contributional Guidelines](#contribution)
+  * [Testing](#testing)
+  * [Questions](#questions) 
+    `;
+  } else {
+    return '';
+  }
+};
 
 // TODO: Create a function to generate markdown for README
 module.exports = templateData => {
   return `# ${templateData.title}
   ${renderLicenseSection(templateData.license[0])}
   [${renderLicenseBadge(templateData.license)}](${renderLicenseLink(templateData.license)})
-  ## Table of Contents
-  * [Description](#description)
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Contribution Guidelines](#contribution-guidelines)
-  * [Testing](#testing)
-  * [Questions](#questions)  
+  ${renderContentsSection(templateData.contentsConfirm)}
   ## Description
   ${templateData.description}
   ## Installation
