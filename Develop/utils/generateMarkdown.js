@@ -1,22 +1,12 @@
-const { makeBadge, ValidationError } = require('badge-maker');
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 const renderLicenseBadge = license => {
   if (license == 'Unlicense' || license == '') {
     return '';
   }
-  const format = {
-    label: 'license',
-    message: license.join(', '),
-    color: 'informational',
-    style: 'for-the-badge',
-  }
-
-  const svg = makeBadge(format)
-
-  if (svg) {
-    return svg;
-  }
+  return `
+    <img src="https://img.shields.io/static/v1?label=LICENSE&message=${license}&color=informational&style=for-the-badge" />
+    `
 };
 
 // TODO: Create a function that returns the license link
