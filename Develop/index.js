@@ -102,14 +102,29 @@ function init() {
     questions()
         .then(answers => {
             const mdFile = generateMarkdown(answers);
+            
+            if (!fs.existsSync('./dist')) {
+                console.log('No directory... Creating...');
 
-            fs.writeFile('./dist/generated-readme.md', mdFile, err => {
-                if (err) throw err;
+                fs.mkdir('./dist', err => {
+                    if (err) return err;
 
-                console.log('Generating ReadMe...');
-                console.log(answers)
-            })
-        })
+                    fs.writeFile('./dist/generated-readme.md', mdFile, err => {
+                        if (err) return err;
+
+                        console.log('Generating ReadMe...');
+                    })
+                })
+            } else {
+                console.log('Located directory...');
+
+                fs. writeFile('./dist/generated-readme.md', mdFile, err => {
+                    if (err) return err;
+
+                    console.log('Generating ReadMe...');
+                })
+            }
+        });
 };
 
 // Function call to initialize app
