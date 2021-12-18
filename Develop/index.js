@@ -37,7 +37,11 @@ const questions = () => {
             type: 'input',
             name: 'title',
             message: 'What is the title of your project?',
-            default: 'README Generator',
+        },
+        {
+            type: 'input',
+            name: 'repo',
+            message: 'What is the name of your GitHub Repository?',
         },
         {
             type: 'confirm',

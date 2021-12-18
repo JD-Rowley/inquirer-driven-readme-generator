@@ -41,6 +41,7 @@ const renderContentsSection = contentsConfirm => {
   * [Contribution Guidelines](#contribution-guidelines)
   * [Testing](#testing)
   * [Questions](#questions) 
+  * [GitHub Repo](#github-repo)
     `;
   } else {
     return '';
@@ -66,5 +67,7 @@ module.exports = templateData => {
   ## Questions
   * GitHub: [${templateData.githubName}](http://github.com/${templateData.githubName})
   * E-mail: ${templateData.email}
+
+  ### GitHub Repo: https://github.com/JD-Rowley/${templateData.repo}
   `;
 }
